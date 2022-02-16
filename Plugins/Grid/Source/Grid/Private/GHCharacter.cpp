@@ -35,6 +35,20 @@ void AGHCharacter::Tick(float DeltaTime)
 void AGHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	PlayerInputComponent->BindAxis("MoveForward",this,&ThisClass::MoveCameraForward);
+	PlayerInputComponent->BindAxis("MoveRight",this,&ThisClass::MoveCameraRight);
+	PlayerInputComponent->BindAction("CameraDown",IE_Pressed,this,&ThisClass::CameraDown);
+	PlayerInputComponent->BindAction("CameraUp",IE_Pressed,this,&ThisClass::CameraUp);
+}
+
+void AGHCharacter::MoveCameraForward(float Rate)
+{
+	Camera->SetWorldLocation(FVector::ForwardVector*Rate*5+Camera->GetComponentLocation());
+}
+
+void AGHCharacter::MoveCameraRight(float Rate)
+{
+	Camera->SetWorldLocation(FVector::RightVector*Rate*5+Camera->GetComponentLocation());
 }
 
 void AGHCharacter::InitLocation()
@@ -42,3 +56,13 @@ void AGHCharacter::InitLocation()
 	MoveComponent->Init();
 }
 
+void AGHCharacter::CameraDown()
+{
+
+	SpringArm->TargetArmLength = SpringArm->TargetArmLength-100;
+}
+
+void AGHCharacter::CameraUp()
+{
+	SpringArm->TargetArmLength = SpringArm->TargetArmLength+100;
+}

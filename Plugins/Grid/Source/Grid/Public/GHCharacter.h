@@ -32,6 +32,12 @@ protected:
 	
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly)
 	UCameraComponent* Camera;
+
+	void MoveCameraForward(float Rate);
+	void MoveCameraRight(float Rate);
+
+	void CameraDown();
+	void CameraUp();
 	
 public:
 	// Called every frame
@@ -41,4 +47,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void InitLocation();
 
+	
+
 };
+

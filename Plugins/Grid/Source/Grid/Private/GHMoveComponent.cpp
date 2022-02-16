@@ -102,7 +102,8 @@ void UGHMoveComponent::Moving()
 	{
 		if(HexWayArray.IsValidIndex(0))
 		{
-			GetPositionCharacter()->CharacterExitHex();
+			
+			Server_SetPos(true);
 			HexWayCache=HexWayArray;
 		}
 		else
@@ -133,7 +134,8 @@ void UGHMoveComponent::Moving()
 			ShowPath(GetPositionCharacter(),LastHexInPath);
 		}
 		ActorLocationHex = GetPositionCharacter();
-		GetPositionCharacter()->SetCharacterOnHex();
+		
+		Server_SetPos(false);
 		bIsMoving = false;
 		StopCharacterMove();
 	}
@@ -236,7 +238,7 @@ void UGHMoveComponent::FindPath(AGHHexActor* StartHex, AGHHexActor* HexEnd)
 
 void UGHMoveComponent::RetracePath(AGHHexActor* Start, AGHHexActor* End)
 {
-	//TArray<AGHHexActor*> Path;
+
 	AGHHexActor* CurrentHex = End;
 	
 	while(CurrentHex!=Start)
@@ -245,6 +247,28 @@ void UGHMoveComponent::RetracePath(AGHHexActor* Start, AGHHexActor* End)
 		CurrentHex = CurrentHex->Parent;
 	}
 	Algo::Reverse(HexWayArray);
+}
+
+bool UGHMoveComponent::Multi_SetPosCharacter_Validate(bool bExit)
+{
+	return true;
+}
+
+void UGHMoveComponent::Multi_SetPosCharacter_Implementation(bool bExit)
+{
+	if(bExit)
+	{
+		GetPositionCharacter()->CharacterExitHex();
+	}
+	else
+	{
+		GetPositionCharacter()->SetCharacterOnHex();
+	}
+}
+
+void UGHMoveComponent::Server_SetPos_Implementation(bool bExit)
+{
+	Multi_SetPosCharacter(bExit);
 }
 
 TArray<AGHHexActor*>& UGHMoveComponent::GetPath(AGHHexActor* StartHex, AGHHexActor* HexEnd)

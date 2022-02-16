@@ -14,8 +14,8 @@ class AGHHexActor;
 #endif
 #define GRID_GHSpawnGrid_generated_h
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execBeginOverlap); \
@@ -24,7 +24,7 @@ class AGHHexActor;
 	DECLARE_FUNCTION(execHexSpawn);
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execInit); \
 	DECLARE_FUNCTION(execBeginOverlap); \
@@ -33,7 +33,7 @@ class AGHHexActor;
 	DECLARE_FUNCTION(execHexSpawn);
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS_NO_PURE_DECLS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGHSpawnGrid(); \
 	friend struct Z_Construct_UClass_AGHSpawnGrid_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(AGHSpawnGrid)
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAGHSpawnGrid(); \
 	friend struct Z_Construct_UClass_AGHSpawnGrid_Statics; \
@@ -51,7 +51,7 @@ public: \
 	DECLARE_SERIALIZER(AGHSpawnGrid)
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_STANDARD_CONSTRUCTORS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AGHSpawnGrid(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AGHSpawnGrid) \
@@ -64,7 +64,7 @@ private: \
 public:
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_ENHANCED_CONSTRUCTORS \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AGHSpawnGrid(AGHSpawnGrid&&); \
@@ -75,7 +75,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGHSpawnGrid)
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SceneComponent() { return STRUCT_OFFSET(AGHSpawnGrid, SceneComponent); } \
 	FORCEINLINE static uint32 __PPO__HexArray() { return STRUCT_OFFSET(AGHSpawnGrid, HexArray); } \
 	FORCEINLINE static uint32 __PPO__HexActorClass() { return STRUCT_OFFSET(AGHSpawnGrid, HexActorClass); } \
@@ -83,27 +83,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__HexMesh() { return STRUCT_OFFSET(AGHSpawnGrid, HexMesh); }
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_10_PROLOG
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_GENERATED_BODY_LEGACY \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_10_PROLOG
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_STANDARD_CONSTRUCTORS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_GENERATED_BODY \
+#define GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS_NO_PURE_DECLS \
-	GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_ENHANCED_CONSTRUCTORS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_PRIVATE_PROPERTY_OFFSET \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_SPARSE_DATA \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_INCLASS_NO_PURE_DECLS \
+	GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -111,7 +111,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> GRID_API UClass* StaticClass<class AGHSpawnGrid>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID GloomHaven_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h
+#define CURRENT_FILE_ID GridShared_Plugins_Grid_Source_Grid_Public_GHSpawnGrid_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

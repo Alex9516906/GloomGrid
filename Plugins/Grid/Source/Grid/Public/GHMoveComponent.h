@@ -46,6 +46,17 @@ protected:
 
 	void RetracePath(AGHHexActor* Start, AGHHexActor* End);
 
+	UFUNCTION(NetMulticast,Reliable,WithValidation)
+	void Multi_SetPosCharacter(bool bExit);
+	bool Multi_SetPosCharacter_Validate(bool bExit);
+	void Multi_SetPosCharacter_Implementation(bool bExit);
+
+	UFUNCTION(Server,Reliable)
+	void Server_SetPos(bool bExit);
+	void Server_SetPos_Implementation(bool bExit);
+
+
+	
 public:
 	
 	bool bIsMoving = false;

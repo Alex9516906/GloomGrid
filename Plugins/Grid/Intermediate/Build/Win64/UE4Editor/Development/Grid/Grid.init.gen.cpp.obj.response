@@ -32,7 +32,7 @@
 /wd4244
 /wd4838
 /I .
-/I C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Source\Grid\Private
+/I C:\ue4\GridShared\Plugins\Grid\Source\Grid\Private
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -236,9 +236,9 @@
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\MRMesh
 /I Runtime\MRMesh\Public
-/I C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Inc\Grid
-/I C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Source
-/I C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Source\Grid\Public
+/I C:\ue4\GridShared\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Inc\Grid
+/I C:\ue4\GridShared\Plugins\Grid\Source
+/I C:\ue4\GridShared\Plugins\Grid\Source\Grid\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -268,12 +268,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"
-/FI"C:\ue4\HomeWork\GloomHaven\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\ue4\HomeWork\GloomHaven\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\ue4\HomeWork\GloomHaven\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Inc\Grid\Grid.init.gen.cpp"
-/FI"C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Development\Grid\Definitions.Grid.h"
-/Fo"C:\ue4\HomeWork\GloomHaven\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Development\Grid\Grid.init.gen.cpp.obj"
+/FI"C:\ue4\GridShared\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"C:\ue4\GridShared\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\ue4\GridShared\Intermediate\Build\Win64\GloomHavenEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"C:\ue4\GridShared\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Inc\Grid\Grid.init.gen.cpp"
+/FI"C:\ue4\GridShared\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Development\Grid\Definitions.Grid.h"
+/Fo"C:\ue4\GridShared\Plugins\Grid\Intermediate\Build\Win64\UE4Editor\Development\Grid\Grid.init.gen.cpp.obj"
 /TP
 /GR-
 /W4

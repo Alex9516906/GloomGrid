@@ -71,6 +71,27 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 		P_THIS->ShowMovableHex(Z_Param_MaxHex);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UGHMoveComponent::execServer_SetPos)
+	{
+		P_GET_UBOOL(Z_Param_bExit);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Server_SetPos_Implementation(Z_Param_bExit);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UGHMoveComponent::execMulti_SetPosCharacter)
+	{
+		P_GET_UBOOL(Z_Param_bExit);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		if (!P_THIS->Multi_SetPosCharacter_Validate(Z_Param_bExit))
+		{
+			RPC_ValidateFailed(TEXT("Multi_SetPosCharacter_Validate"));
+			return;
+		}
+		P_THIS->Multi_SetPosCharacter_Implementation(Z_Param_bExit);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UGHMoveComponent::execStopCharacterMove)
 	{
 		P_FINISH;
@@ -94,6 +115,20 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 		P_THIS->StartMoving(Z_Param_HexEnd);
 		P_NATIVE_END;
 	}
+	static FName NAME_UGHMoveComponent_Multi_SetPosCharacter = FName(TEXT("Multi_SetPosCharacter"));
+	void UGHMoveComponent::Multi_SetPosCharacter(bool bExit)
+	{
+		GHMoveComponent_eventMulti_SetPosCharacter_Parms Parms;
+		Parms.bExit=bExit ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_UGHMoveComponent_Multi_SetPosCharacter),&Parms);
+	}
+	static FName NAME_UGHMoveComponent_Server_SetPos = FName(TEXT("Server_SetPos"));
+	void UGHMoveComponent::Server_SetPos(bool bExit)
+	{
+		GHMoveComponent_eventServer_SetPos_Parms Parms;
+		Parms.bExit=bExit ? true : false;
+		ProcessEvent(FindFunctionChecked(NAME_UGHMoveComponent_Server_SetPos),&Parms);
+	}
 	void UGHMoveComponent::StaticRegisterNativesUGHMoveComponent()
 	{
 		UClass* Class = UGHMoveComponent::StaticClass();
@@ -101,6 +136,8 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 			{ "ClearWay", &UGHMoveComponent::execClearWay },
 			{ "GetPath", &UGHMoveComponent::execGetPath },
 			{ "GetPositionCharacter", &UGHMoveComponent::execGetPositionCharacter },
+			{ "Multi_SetPosCharacter", &UGHMoveComponent::execMulti_SetPosCharacter },
+			{ "Server_SetPos", &UGHMoveComponent::execServer_SetPos },
 			{ "SetActorLocation", &UGHMoveComponent::execSetActorLocation },
 			{ "ShowMovableHex", &UGHMoveComponent::execShowMovableHex },
 			{ "ShowPath", &UGHMoveComponent::execShowPath },
@@ -214,6 +251,72 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UGHMoveComponent_GetPositionCharacter_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics
+	{
+		static void NewProp_bExit_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bExit;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::NewProp_bExit_SetBit(void* Obj)
+	{
+		((GHMoveComponent_eventMulti_SetPosCharacter_Parms*)Obj)->bExit = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::NewProp_bExit = { "bExit", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(GHMoveComponent_eventMulti_SetPosCharacter_Parms), &Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::NewProp_bExit_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::NewProp_bExit,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/GHMoveComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGHMoveComponent, nullptr, "Multi_SetPosCharacter", nullptr, nullptr, sizeof(GHMoveComponent_eventMulti_SetPosCharacter_Parms), Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80084CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics
+	{
+		static void NewProp_bExit_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bExit;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::NewProp_bExit_SetBit(void* Obj)
+	{
+		((GHMoveComponent_eventServer_SetPos_Parms*)Obj)->bExit = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::NewProp_bExit = { "bExit", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(GHMoveComponent_eventServer_SetPos_Parms), &Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::NewProp_bExit_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::NewProp_bExit,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/GHMoveComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGHMoveComponent, nullptr, "Server_SetPos", nullptr, nullptr, sizeof(GHMoveComponent_eventServer_SetPos_Parms), Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00280CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UGHMoveComponent_Server_SetPos()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UGHMoveComponent_Server_SetPos_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -452,6 +555,8 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 		{ &Z_Construct_UFunction_UGHMoveComponent_ClearWay, "ClearWay" }, // 862920907
 		{ &Z_Construct_UFunction_UGHMoveComponent_GetPath, "GetPath" }, // 3148201442
 		{ &Z_Construct_UFunction_UGHMoveComponent_GetPositionCharacter, "GetPositionCharacter" }, // 382000843
+		{ &Z_Construct_UFunction_UGHMoveComponent_Multi_SetPosCharacter, "Multi_SetPosCharacter" }, // 887029
+		{ &Z_Construct_UFunction_UGHMoveComponent_Server_SetPos, "Server_SetPos" }, // 1760521190
 		{ &Z_Construct_UFunction_UGHMoveComponent_SetActorLocation, "SetActorLocation" }, // 1782318877
 		{ &Z_Construct_UFunction_UGHMoveComponent_ShowMovableHex, "ShowMovableHex" }, // 3400958092
 		{ &Z_Construct_UFunction_UGHMoveComponent_ShowPath, "ShowPath" }, // 2229965708
@@ -544,7 +649,7 @@ void EmptyLinkFunctionForGeneratedCodeGHMoveComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UGHMoveComponent, 2796218247);
+	IMPLEMENT_CLASS(UGHMoveComponent, 2610301305);
 	template<> GRID_API UClass* StaticClass<UGHMoveComponent>()
 	{
 		return UGHMoveComponent::StaticClass();
