@@ -13,7 +13,8 @@ AGHSpawnGrid::AGHSpawnGrid()
 void AGHSpawnGrid::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
-	DrawDebugHexOnConstruct();
+	if(bIsVisibleGridInEditor)
+		DrawDebugHexOnConstruct();
 }
 
 void AGHSpawnGrid::BeginPlay()
@@ -61,6 +62,14 @@ void AGHSpawnGrid::Init()
 	{
 		InitSpawn.Broadcast();
 	}
+}
+
+void AGHSpawnGrid::SwitchVisibility()
+{
+	bIsVisibleGridInEditor = !bIsVisibleGridInEditor;
+	UKismetSystemLibrary::FlushPersistentDebugLines(this);
+	if(bIsVisibleGridInEditor)
+		DrawDebugHexOnConstruct();
 }
 
 FVector AGHSpawnGrid::CalculateSpawnTransform(int32 i, int32 j)

@@ -49,7 +49,7 @@ void UGHMoveComponent::StartCharacterMove(int32 DistanceInHexMaxMove)
 		FVector EndVector = PosLocation +PosDirection*10000;
 		FHitResult HitResult;
 		GetWorld()->LineTraceSingleByChannel(HitResult,PosLocation,EndVector,ECollisionChannel::ECC_Visibility);
-		if(AGHHexActor* Hex = Cast<AGHHexActor>(HitResult.Actor))
+		if(AGHHexActor* Hex = Cast<AGHHexActor>(HitResult.GetActor()))
 		{
 			if(ActorLocationHex)
 			{
@@ -268,7 +268,7 @@ AGHHexActor* UGHMoveComponent::GetPositionCharacter()
 	FCollisionQueryParams Params;
 	FHitResult HitResult;
 	GetWorld()->LineTraceSingleByChannel(HitResult,StartVector,EndVector,ECollisionChannel::ECC_Visibility);
-	if(const auto Actor = Cast<AGHHexActor>(HitResult.Actor))
+	if(const auto Actor = Cast<AGHHexActor>(HitResult.GetActor()))
 	{
 		return Actor;
 	}

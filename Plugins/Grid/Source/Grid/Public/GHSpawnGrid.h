@@ -22,6 +22,12 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void  HexSpawn();
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	bool bIsVisibleGridInEditor = true;
+
+	UFUNCTION(CallInEditor)
+	void SwitchVisibility();
 	
 	FVector CalculateSpawnTransform(int32 i, int32 j);
 
